@@ -1,0 +1,128 @@
+/* src/pages/WelcomePage.css */
+.frontendWelcome {
+  position: fixed;
+  min-height: 100vh; /* 减去 Header 的高度 */
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  right: 0;
+  bottom: 0;
+  padding: 40px; /* 增加内边距 */
+  background: url("../assets/styles/3.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-image 0.5s ease-in-out;
+}
+body > .frontendWelcome {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+.welcomeTitle {
+  font-size: 72px; /* 稍微增大标题 */
+  font-weight: 800; /* 更粗的字体 */
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* 添加文字阴影增强层次 */
+}
+
+.ownBox {
+  background: rgba(255, 255, 255, 0.05); /* 增加透明度 */
+  -webkit-backdrop-filter: blur(15px); /* 增大模糊效果 */
+  backdrop-filter: blur(5px);
+  border-radius: 24px; /* 更大的圆角 */
+  padding: 50px; /* 增加内边距让盒子更大 */
+  box-shadow: 
+    0 15px 35px rgba(0, 0, 0, 0.25), /* 主阴影 */
+    0 5px 15px rgba(0, 0, 0, 0.1), /* 次阴影增加层次 */
+    inset 0 0 15px rgba(255, 255, 255, 0.5); /* 内发光效果 */
+  border: 1px solid rgba(255, 255, 255, 0.5); /* 更亮的边框 */
+  max-width: 900px; /* 更大的最大宽度 */
+  width: 90%; /* 相对宽度 */
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  z-index: 10;
+  transition: all 0.3s ease; /* 添加过渡效果 */
+}
+
+/* 添加深度感伪元素 */
+.ownBox::before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.ownBox:hover {
+  transform: translateY(-5px); /* 悬停时轻微上浮 */
+  box-shadow: 
+    0 20px 45px rgba(0, 0, 0, 0.3),
+    0 8px 20px rgba(0, 0, 0, 0.15),
+    inset 0 0 20px rgba(255, 255, 255, 0.6);
+}
+
+.ownBox h1 {
+  color: #006666;
+  margin-bottom: 30px;
+  font-size: 2.2em; /* 增大标题 */
+}
+
+.welcomeButtons {
+  display: flex;
+  justify-content: center;
+  gap: 25px; /* 增加按钮间距 */
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.welcomeBtn {
+  display: inline-block;
+  padding: 15px 30px; /* 增大按钮 */
+  background:rgba(255,255,255,0.2);
+  color: white;
+  text-decoration: none;
+  border-radius: 12px; /* 更大的圆角 */
+  font-weight: bold;
+  font-size: 1.1em;
+  transition: all 0.3s ease;
+  box-shadow: 
+    0 6px 20px rgba(255, 122, 51, 0.4), /* 外阴影 */
+    inset 0 2px 5px rgba(255, 255, 255, 0.3); /* 内阴影 */
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* 添加按钮悬停效果 */
+.welcomeBtn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(255,255,255,0.3), transparent);
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.welcomeBtn:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 
+    0 10px 25px rgba(255, 122, 51, 0.6),
+    inset 0 3px 8px rgba(255, 255, 255, 0.4);
+}
+
+.welcomeBtn:hover::before {
+  opacity: 1;
+}

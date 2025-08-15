@@ -1,0 +1,33 @@
+{
+  "name": "project-root",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "pnpm --filter web-new dev",
+    "build": "pnpm --filter web-new build",
+    "start": "pnpm --filter web-new start",
+    "lint": "pnpm --filter web-new lint",
+    "postinstall": "pnpm --filter web-new install-local"
+  },
+  "dependencies": {
+    "@ant-design/icons": "^5.6.1",
+    "antd": "^5.26.7",
+    "prismjs": "^1.30.0",
+    "react-router-dom": "^7.7.1"
+  },
+  "devDependencies": {
+
+    "@eslint/eslintrc": "^3",
+    "@tailwindcss/postcss": "^4",
+    "@types/antd": "^1.0.4",
+    "@types/prismjs": "^1.26.5",
+    "tailwindcss": "^4",
+
+    "pnpm": "^8.15.6"
+  },
+  "pnpm": {
+    "peerDependencyRules": {
+      "ignoreMissing": ["react", "react-dom"]
+    }
+  }
+}

@@ -1,0 +1,406 @@
+/* 菜单项通用样式 */
+.ant-menu {
+  background: transparent !important;
+  border-right: none !important;
+  color: rgba(0, 65, 245, 0.9) !important;
+  font-family: 'Orbitron', sans-serif !important;
+}
+
+.ant-menu-submenu > .ant-menu {
+  background: rgba(255, 255, 255, 0.4) !important;
+}
+
+.ant-menu-item, 
+.ant-menu-submenu-title {
+  transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1) !important;
+  margin: 4px 0 !important;
+  border-radius: 0 !important;
+  height: 42px !important;
+  line-height: 42px !important;
+  padding-left: 24px !important;
+  color:#00b894;
+}
+
+/* 默认悬停效果 */
+.ant-menu-item:hover, 
+.ant-menu-submenu-title:hover,
+.ant-menu-item-active, 
+.ant-menu-submenu-active > .ant-menu-submenu-title {
+  color: #ffffff !important;
+  background: rgba(100, 180, 255, 0.15) !important;
+}
+
+/* 当前选中项 */
+.ant-menu-item-selected {
+  background: linear-gradient(90deg, transparent, rgba(0, 150, 255, 0.3), transparent) !important;
+  color: #00ccff !important;
+  position: relative;
+}
+
+.ant-menu-item-selected::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 3px;
+  background: #00ccff;
+  box-shadow: 0 0 10px #00ccff;
+}
+
+/* 分隔线 */
+.ant-menu-item-divider {
+  background: rgba(100, 150, 255, 0.2) !important;
+  margin: 15px 0 !important;
+}
+
+/* ---------- 为不同菜单项设置主题色 ---------- */
+
+/* HTML - 橙色 */
+.menu-html .ant-menu-submenu-title,
+.menu-html .ant-menu-item {
+  --theme-color: #ff8c00;
+}
+.menu-html .ant-menu-submenu-title:hover,
+.menu-html .ant-menu-item:hover {
+  color: var(--theme-color) !important;
+}
+.menu-html .ant-menu-item-selected {
+  color: var(--theme-color) !important;
+}
+.menu-html .ant-menu-item-selected::after {
+  background: var(--theme-color);
+  box-shadow: 0 0 10px var(--theme-color);
+}
+
+/* CSS - 蓝色 */
+.menu-css .ant-menu-submenu-title,
+.menu-css .ant-menu-item {
+  --theme-color: #1e90ff;
+}
+.menu-css .ant-menu-submenu-title:hover,
+.menu-css .ant-menu-item:hover {
+  color: var(--theme-color) !important;
+}
+.menu-css .ant-menu-item-selected {
+  color: var(--theme-color) !important;
+}
+.menu-css .ant-menu-item-selected::after {
+  background: var(--theme-color);
+  box-shadow: 0 0 10px var(--theme-color);
+}
+
+/* JavaScript - 黄色 */
+.menu-javascript .ant-menu-submenu-title,
+.menu-javascript .ant-menu-item {
+  --theme-color: #ffd700;
+}
+.menu-javascript .ant-menu-submenu-title:hover,
+.menu-javascript .ant-menu-item:hover {
+  color: var(--theme-color) !important;
+}
+.menu-javascript .ant-menu-item-selected {
+  color: var(--theme-color) !important;
+}
+.menu-javascript .ant-menu-item-selected::after {
+  background: var(--theme-color);
+  box-shadow: 0 0 10px var(--theme-color);
+}
+
+/* React - 青色 */
+.menu-react .ant-menu-submenu-title,
+.menu-react .ant-menu-item {
+  --theme-color: #00ced1;
+}
+.menu-react .ant-menu-submenu-title:hover,
+.menu-react .ant-menu-item:hover {
+  color: var(--theme-color) !important;
+}
+.menu-react .ant-menu-item-selected {
+  color: var(--theme-color) !important;
+}
+.menu-react .ant-menu-item-selected::after {
+  background: var(--theme-color);
+  box-shadow: 0 0 10px var(--theme-color);
+}
+
+/* Vue - 绿色 */
+.menu-vue .ant-menu-submenu-title,
+.menu-vue .ant-menu-item {
+  --theme-color: #42b983;
+}
+.menu-vue .ant-menu-submenu-title:hover,
+.menu-vue .ant-menu-item:hover {
+  color: var(--theme-color) !important;
+}
+.menu-vue .ant-menu-item-selected {
+  color: var(--theme-color) !important;
+}
+.menu-vue .ant-menu-item-selected::after {
+  background: var(--theme-color);
+  box-shadow: 0 0 10px var(--theme-color);
+}
+
+/* 构建工具 - 紫色 */
+.menu-build .ant-menu-submenu-title,
+.menu-build .ant-menu-item {
+  --theme-color: #9370db;
+}
+.menu-build .ant-menu-submenu-title:hover,
+.menu-build .ant-menu-item:hover {
+  color: var(--theme-color) !important;
+}
+.menu-build .ant-menu-item-selected {
+  color: var(--theme-color) !important;
+}
+.menu-build .ant-menu-item-selected::after {
+  background: var(--theme-color);
+  box-shadow: 0 0 10px var(--theme-color);
+}
+
+/* 编译器 - 粉色 */
+.menu-compiler .ant-menu-submenu-title,
+.menu-compiler .ant-menu-item {
+  --theme-color: #ff69b4;
+}
+.menu-compiler .ant-menu-submenu-title:hover,
+.menu-compiler .ant-menu-item:hover {
+  color: var(--theme-color) !important;
+}
+.menu-compiler .ant-menu-item-selected {
+  color: var(--theme-color) !important;
+}
+.menu-compiler .ant-menu-item-selected::after {
+  background: var(--theme-color);
+  box-shadow: 0 0 10px var(--theme-color);
+}
+
+/* Git - 灰色 */
+.menu-git .ant-menu-submenu-title,
+.menu-git .ant-menu-item {
+  --theme-color: #a9a9a9;
+}
+.menu-git .ant-menu-submenu-title:hover,
+.menu-git .ant-menu-item:hover {
+  color: var(--theme-color) !important;
+}
+.menu-git .ant-menu-item-selected {
+  color: var(--theme-color) !important;
+}
+.menu-git .ant-menu-item-selected::after {
+  background: var(--theme-color);
+  box-shadow: 0 0 10px var(--theme-color);
+}
+
+/* CI/CD - 红色 */
+.menu-ci .ant-menu-submenu-title,
+.menu-ci .ant-menu-item {
+  --theme-color: #ff6b6b;
+}
+.menu-ci .ant-menu-submenu-title:hover,
+.menu-ci .ant-menu-item:hover {
+  color: var(--theme-color) !important;
+}
+.menu-ci .ant-menu-item-selected {
+  color: var(--theme-color) !important;
+}
+.menu-ci .ant-menu-item-selected::after {
+  background: var(--theme-color);
+  box-shadow: 0 0 10px var(--theme-color);
+}
+
+/* 网络 - 天蓝色 */
+.menu-network .ant-menu-submenu-title,
+.menu-network .ant-menu-item {
+  --theme-color: #87ceeb;
+}
+.menu-network .ant-menu-submenu-title:hover,
+.menu-network .ant-menu-item:hover {
+  color: var(--theme-color) !important;
+}
+.menu-network .ant-menu-item-selected {
+  color: var(--theme-color) !important;
+}
+.menu-network .ant-menu-item-selected::after {
+  background: var(--theme-color);
+  box-shadow: 0 0 10px var(--theme-color);
+}
+
+/* 前端工程化 - 青橙色 */
+.menu-engineering .ant-menu-submenu-title,
+.menu-engineering .ant-menu-item {
+  --theme-color: #00b894;
+}
+.menu-engineering .ant-menu-submenu-title:hover,
+.menu-engineering .ant-menu-item:hover {
+  color: var(--theme-color) !important;
+}
+.menu-engineering .ant-menu-item-selected {
+  color: var(--theme-color) !important;
+}
+.menu-engineering .ant-menu-item-selected::after {
+  background: var(--theme-color);
+  box-shadow: 0 0 10px var(--theme-color);
+}
+
+/* 菜单标题样式增强 */
+.ant-menu-submenu-title {
+  font-size: 0.95rem !important;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  position: relative;
+}
+
+.ant-menu-submenu-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 24px;
+  width: 0;
+  height: 1px;
+  background: linear-gradient(90deg, #00ccff, #7700ff);
+  transition: width 0.4s ease;
+}
+
+.ant-menu-submenu:hover .ant-menu-submenu-title::after {
+  width: calc(100% - 48px);
+}
+
+/* 子菜单项样式 */
+.ant-menu-item-only-child {
+  font-size: 0.85rem !important;
+  padding-left: 40px !important;
+  position: relative;
+}
+
+.ant-menu-item-only-child::before {
+  content: '•';
+  position: absolute;
+  left: 24px;
+  color: rgba(100, 180, 255, 0.7);
+  font-size: 12px;
+}
+
+/* 三级菜单 */
+.ant-menu-submenu > .ant-menu > .ant-menu-submenu > .ant-menu-submenu-title {
+  padding-left: px !important;
+}
+
+.ant-menu-submenu > .ant-menu > .ant-menu-submenu > .ant-menu > .ant-menu-item {
+  padding-left: 64px !important;
+}
+
+/* 添加主题色图标 */
+.ant-menu-submenu-title::before {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 10px;
+  background: currentColor;
+  vertical-align: middle;
+}
+
+/* 为不同菜单项设置图标背景色 */
+.menu-html .ant-menu-submenu-title::before {
+  background: #ff8c00;
+}
+.menu-css .ant-menu-submenu-title::before {
+  background: #1e90ff;
+}
+.menu-javascript .ant-menu-submenu-title::before {
+  background: #ffd700;
+}
+.menu-react .ant-menu-submenu-title::before {
+  background: #00ced1;
+}
+.menu-vue .ant-menu-submenu-title::before {
+  background: #42b983;
+}
+.menu-build .ant-menu-submenu-title::before {
+  background: #9370db;
+}
+.menu-compiler .ant-menu-submenu-title::before {
+  background: #ff69b4;
+}
+.menu-git .ant-menu-submenu-title::before {
+  background: #a9a9a9;
+}
+.menu-ci .ant-menu-submenu-title::before {
+  background: #ff6b6b;
+}
+.menu-network .ant-menu-submenu-title::before {
+  background: #87ceeb;
+}
+.menu-engineering .ant-menu-submenu-title::before {
+  background: #00b894;
+}
+
+ /* 确保子菜单可以正常显示 */
+  .ant-menu-submenu > .ant-menu {
+    position: static !important;
+    transform: none !important;
+    box-shadow: none !important;
+  }
+  
+  /* 多级菜单内边距调整 */
+  .ant-menu-submenu-placement-rightTop {
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+  }
+  
+  /* 三级菜单样式 */
+  .ant-menu-sub.ant-menu-inline > .ant-menu-submenu > .ant-menu-submenu-title {
+    padding-left: 40px !important;
+  }
+  
+  .ant-menu-sub.ant-menu-inline > .ant-menu-item {
+    padding-left: 56px !important;
+  }
+/* 解决 Ant Design Menu 字体颜色无法设置的问题 */
+
+/* 明亮主题 */
+body[data-theme='light'] .ant-menu-item,
+body[data-theme='light'] .ant-menu-submenu-title {
+  color: #00c0e2 !important; /* 默认字体颜色 */
+}
+
+/* 暗色主题 */
+body[data-theme='dark'] .ant-menu-item,
+body[data-theme='dark'] .ant-menu-submenu-title {
+  color: #f2ff3e !important; /* 默认字体颜色 */
+}
+
+/* 护眼主题 */
+body[data-theme='eye'] .ant-menu-item,
+body[data-theme='eye'] .ant-menu-submenu-title {
+  color: #3feb47 !important; /* 默认字体颜色 */
+}
+
+/* 覆盖 Ant Design 的内联样式 */
+.ant-menu-item > span,
+.ant-menu-submenu-title > span {
+  color: inherit !important;
+}
+
+/* 确保图标颜色也继承 */
+.ant-menu-item .anticon,
+.ant-menu-submenu-title .anticon {
+  color: inherit !important;
+}
+
+/* 覆盖选中状态 */
+.ant-menu-item-selected,
+.ant-menu-item-selected > span {
+  color: inherit !important;
+}
+
+/* 覆盖悬停状态 */
+.ant-menu-item:hover,
+.ant-menu-submenu-title:hover,
+.ant-menu-item:hover > span,
+.ant-menu-submenu-title:hover > span {
+  color: inherit !important;
+}

@@ -1,0 +1,554 @@
+/* src/assets/styles/header.css */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 70px; /* 增加高度创造空间感 */
+  z-index: 1000; /* 更高层级 */
+  display: flex;
+  align-items: center;
+  padding: 0 30px;
+  transition: all 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+  
+  /* 高级科技感基底 */
+  background: rgba(12, 15, 25, 0.05); /* 深空底色 */
+  border-bottom: 1px solid rgba(100, 120, 255, 0.40); /* 微妙的光边 */
+  box-shadow: 0 0 30px rgba(80, 100, 255, 0.1); /* 科技蓝光晕 */
+  
+  /* 未来感装饰 */
+  background-image: 
+    linear-gradient(90deg, transparent 95%, rgba(0, 195, 255, 0.1) 100%),
+    linear-gradient(rgba(0, 0, 0, 0.1) 1px, transparent 1px);
+}
+
+
+
+/* ---------- 未来护眼模式 ---------- */
+.body.eye-protection-mode .header {
+  background: 
+    linear-gradient(90deg, 
+      rgba(8, 30, 15, 0.98) 0%, 
+      rgba(5, 25, 15, 0.98) 100%), /* 深绿渐变 */
+    linear-gradient(rgba(0, 0, 0, 0.15) 1px, transparent 1px);
+  background-size: 100% 100%, 20px 20px;
+  border-bottom: 1px solid rgba(0, 230, 150, 0.4);
+  box-shadow: 
+    0 0 40px rgba(0, 200, 120, 0.3), /* 绿色光晕 */
+    0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* ---------- 文字与链接 ---------- */
+.logo {
+  font-weight: 500;
+  font-size: 1.6rem;
+  letter-spacing: 2px;
+  color: rgba(220, 230, 255, 1);
+  text-shadow: 0 0 10px rgba(100, 150, 255, 0.7);
+  position: relative;
+  transition: all 0.4s ease;
+}
+
+.logo::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #00ccff, transparent);
+  transform: scaleX(0);
+  transition: transform 0.4s ease;
+}
+
+.logo:hover {
+  text-shadow: 0 0 15px rgba(100, 180, 255, 1);
+}
+
+.logo:hover::after {
+  transform: scaleX(1);
+}
+
+.navLink {
+  position: relative;
+  font-weight: 400;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  color: rgba(200, 220, 255, 0.9);
+  padding: 8px 0;
+  margin: 0 20px;
+  transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.navLink::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: linear-gradient(90deg, #00ccff, #7700ff);
+  transition: width 0.4s ease;
+}
+
+.navLink:hover {
+  color: #ffffff;
+  text-shadow: 0 0 12px rgba(100, 200, 255, 0.8);
+}
+
+.navLink:hover::before {
+  width: 100%;
+}
+
+/* 书法字体保留但增强科技感 */
+.navLinkDragonFont {
+  font-family: 'DragonFont', 'Orbitron', sans-serif;
+  position: relative;
+}
+
+.navLinkDragonFont::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: -20px;
+  width: 8px;
+  height: 8px;
+  background: rgba(0, 200, 255, 0.7);
+  border-radius: 50%;
+  transform: translateY(-50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.navLinkDragonFont:hover::after {
+  opacity: 1;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(0, 200, 255, 0.7); }
+  70% { box-shadow: 0 0 0 8px rgba(0, 200, 255, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(0, 200, 255, 0); }
+}
+
+/* ---------- 布局优化 ---------- */
+.nav {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.leftContent {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  margin-right: 60px;
+}
+
+.navLinks {
+  display: flex;
+  gap: 40px;
+}
+
+.rightContent {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+/* 使用属性选择器 + 提升优先级 */
+.button[aria-label="Toggle menu"] {
+  display: none !important;
+  visibility: hidden !important; /* 双重保险 */
+}
+/* ---------- 高科技按钮 ---------- */
+.modeToggleBtn {
+  position: relative;
+  background: transparent;
+  border: 1px solid rgba(100, 180, 255, 0.4);
+  border-radius: 0;
+  width: 44px;
+  height: 44px;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(80, 150, 255, 0.2);
+}
+
+/* 添加在文件底部 */
+
+/* 移动端主题按钮靠右 */
+.mobileRight {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1001;
+}
+
+@media (max-width: 768px) {
+  .mobileRight .modeToggleBtn {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  
+  /* 移动端菜单展开时隐藏主题按钮 */
+  .navLinks.mobileOpen ~ .mobileRight {
+    display: none;
+  }
+}
+
+.modeToggleBtn::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, 
+    transparent, 
+    rgba(100, 200, 255, 0.1), 
+    transparent);
+  transform: rotate(45deg);
+  transition: all 0.6s ease;
+}
+/* 移动端主题按钮靠右 */
+@media (max-width: 768px) {
+  .mobileRight {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1001;
+    display: flex;
+    gap: 8px;
+  }
+  
+  /* 调整按钮间距 */
+  .mobileRight .modeToggleBtn {
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 40px;
+    width: 32px;
+    height: 32px;
+  }
+
+  /* 减小图标尺寸 */
+  .mobileRight .modeToggleBtn .icon {
+    font-size: 16px;
+  }
+
+  /* 移动端菜单展开时隐藏主题按钮 */
+  .navLinks.mobileOpen ~ .mobileRight {
+    display: none;
+  }
+}
+.modeToggleBtn:hover {
+  border-color: rgba(100, 220, 255, 0.8);
+  box-shadow: 0 0 20px rgba(80, 180, 255, 0.6);
+}
+
+.modeToggleBtn:hover::before {
+  transform: rotate(45deg) translate(25%, 25%);
+}
+
+.modeToggleBtn.active {
+  background: rgba(100, 180, 255, 0.15);
+  border-color: rgba(100, 220, 255, 1);
+  box-shadow: 
+    0 0 25px rgba(80, 180, 255, 0.8),
+    inset 0 0 15px rgba(100, 220, 255, 0.4);
+}
+
+.icon {
+  font-size: 20px;
+  position: relative;
+  z-index: 2;
+  transition: all 0.4s ease;
+}
+
+.modeToggleBtn:hover .icon {
+  transform: scale(1.2);
+  text-shadow: 0 0 10px rgba(100, 220, 255, 0.8);
+}
+
+/* 暗色模式按钮激活效果 */
+.body.dark-mode .modeToggleBtn.active {
+  border-color: rgba(180, 100, 255, 1);
+  box-shadow: 
+    0 0 25px rgba(180, 100, 255, 0.8),
+    inset 0 0 15px rgba(200, 120, 255, 0.4);
+}
+
+/* 护眼模式按钮激活效果 */
+.body.eye-protection-mode .modeToggleBtn.active {
+  border-color: rgba(0, 230, 150, 1);
+  box-shadow: 
+    0 0 25px rgba(0, 200, 120, 0.8),
+    inset 0 0 15px rgba(0, 230, 180, 0.4);
+}
+
+/* src/assets/styles/header.css */
+/* 原有样式保持不变... */
+
+/* 新增的响应式样式 */
+@media (max-width: 768px) {
+  .navLinks {
+    display: none;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    right: 0;
+    background: rgba(12, 15, 25, 0.98);
+    flex-direction: column;
+    gap: 0;
+    padding: 20px 0;
+    z-index: 1000;
+    border-top: 1px solid rgba(100, 120, 255, 0.15);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  }
+  
+  .navLinks.mobile-open {
+    display: flex;
+  }
+  
+  .navLink {
+    margin: 10px 20px;
+    text-align: center;
+  }
+  
+  .mobile-menu-toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 24px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin-left: 20px;
+    z-index: 1001;
+  }
+  
+  .bar {
+    width: 100%;
+    height: 3px;
+    background: #ffffff;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+  
+  .mobile-menu-toggle:hover .bar {
+    background: #00ccff;
+  }
+  
+  .logo {
+    margin-right: 20px;
+  }
+  
+  .rightContent {
+    margin-right: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    font-size: 1.3rem;
+  }
+  
+  .header {
+    padding: 0 15px;
+  }
+}
+/* 移动端菜单按钮 */
+.headerMenuToggle {
+  display: none; /* 默认隐藏 */
+  margin-left: auto;
+  color: #fff;
+  font-size: 20px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  z-index: 1001;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+/* 移动端导航链接 */
+.navLinks.mobileOpen {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 70px; /* 匹配 header 高度 */
+  left: 0;
+  right: 0;
+  background: rgba(12, 15, 25, 0.98);
+  padding: 20px 0;
+  z-index: 1000;
+  border-top: 1px solid rgba(100, 120, 255, 0.15);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* 响应式：在移动端显示汉堡按钮并调整导航 */
+@media (max-width: 768px) {
+  .headerMenuToggle {
+    display: flex; /* 移动端显示汉堡按钮 */
+  }
+  .headerMenuToggle:hover {
+  background: rgba(255, 255, 255, 0.1);
+  }
+  /* 确保图标垂直居中 */
+.headerMenuToggle .anticon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+/* 添加三条杠图标的动画效果 */
+.headerMenuToggle .anticon svg {
+  transition: all 0.3s ease;
+}
+
+/* 当菜单打开时旋转图标 */
+.headerMenuToggle.active .anticon svg {
+  transform: rotate(90deg);
+}
+  .navLinks {
+    display: none; /* 移动端默认隐藏导航链接 */
+  }
+  
+  .navLinks.mobileOpen {
+    display: flex; /* 移动端激活时显示 */
+  }
+  
+  .navLink {
+    margin: 10px 20px;
+    text-align: center;
+    padding: 12px 0;
+  }
+}
+/* 添加菜单展开/收起动画 */
+.navLinks {
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .navLinks {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+  }
+  
+  .navLinks.mobileOpen {
+    max-height: 300px; /* 根据实际内容高度调整 */
+    transition: max-height 0.3s ease-in;
+  }
+}
+/* header.module.css */
+
+/* 移动端菜单样式 */
+.navLinks.mobileOpen {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 100%; /* 直接位于 header 下方 */
+  left: 0;
+  right: 0;
+  
+  /* 透明背景效果 */
+  background: rgba(12, 15, 25, 0.7); /* 70% 透明度 */
+  -webkit-backdrop-filter: blur(10px); /* 毛玻璃效果 */
+  backdrop-filter: blur(10px);
+  
+  /* 透明边框 */
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  
+  /* 阴影效果 */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  
+  /* 动画效果 */
+  animation: fadeIn 0.3s ease-out forwards;
+  z-index: 999;
+  padding: 15px 0;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 菜单项透明效果 */
+.navLinks.mobileOpen .navLink {
+  background: transparent !important;
+  border: none !important;
+  margin: 8px 20px;
+  padding: 12px 20px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+/* 菜单项悬停效果 */
+.navLinks.mobileOpen .navLink:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+  box-shadow: 0 0 15px rgba(100, 200, 255, 0.3);
+}
+
+/* 移除菜单项的下划线效果 */
+.navLinks.mobileOpen .navLink::before {
+  display: none !important;
+}
+
+/* 主题按钮在移动端调整 */
+@media (max-width: 768px) {
+  .rightContent {
+    position: absolute;
+    top: 15px;
+    right: 60px; /* 给汉堡按钮留出空间 */
+    z-index: 1001;
+  }
+  
+  .modeToggleBtn {
+    width: 36px;
+    height: 36px;
+    margin: 0 3px;
+  }
+}
+
+@font-face {
+    font-family: 'MyCustomFont';
+    src: 
+        url('/fonts/wendao.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+.header .logo{
+    font-family: 'MyCustomFont',  Arial, sans-serif;
+    font-size: 2rem;
+    color:orange
+}
+.navLink{
+    font-family: 'MyCustomFont',  Arial, sans-serif;
+    font-size: 1.5rem;
+}

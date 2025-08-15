@@ -1,0 +1,89 @@
+
+
+/* 主题适配 */
+body[data-theme='dark'] .toggleButton {
+  background: rgba(90, 90, 180, 0.7);
+  box-shadow: 
+    0 4px 12px rgba(0, 0, 0, 0.3),
+    0 0 0 2px rgba(200, 200, 255, 0.2);
+}
+
+body[data-theme='dark'] .toggleButton:hover {
+  background: rgba(110, 110, 200, 0.8);
+  box-shadow: 
+    0 6px 16px rgba(0, 0, 0, 0.4),
+    0 0 0 3px rgba(200, 200, 255, 0.3);
+}
+
+body[data-theme='eye'] .toggleButton {
+  background: rgba(100, 200, 100, 0.7);
+  box-shadow: 
+    0 4px 12px rgba(0, 100, 0, 0.2),
+    0 0 0 2px rgba(220, 255, 220, 0.2);
+}
+
+body[data-theme='eye'] .toggleButton:hover {
+  background: rgba(120, 220, 120, 0.8);
+  box-shadow: 
+    0 6px 16px rgba(0, 100, 0, 0.3),
+    0 0 0 3px rgba(220, 255, 220, 0.3);
+}
+@media (min-width: 769px) { 
+    .menuToggleButton {
+      display: none;
+    }
+  }
+/* 移动端优化 */
+@media (max-width: 769px) {
+  .menuToggleButton {
+    right: 15px;
+    bottom: 15px;
+  }
+  
+  .toggleButton {
+    width: 50px;
+    height: 50px;
+    font-size: 22px;
+  }
+  /* src/assets/styles/MenuToggleButton.module.css */
+.menuToggleButton {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 1000;
+}
+
+.toggleButton {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(100, 100, 255, 0.7);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+
+  color: white;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 
+    0 4px 12px rgba(0, 0, 0, 0.2),
+    0 0 0 2px rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+  z-index: 1001;
+}
+
+.toggleButton:hover {
+  transform: scale(1.1);
+  box-shadow: 
+    0 6px 16px rgba(0, 0, 0, 0.3),
+    0 0 0 3px rgba(255, 255, 255, 0.3);
+  background: rgba(120, 120, 255, 0.8);
+}
+
+.toggleButton:active {
+  transform: scale(0.95);
+}
+}

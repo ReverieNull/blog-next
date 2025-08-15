@@ -1,0 +1,337 @@
+/* src/assets/styles/Layout.css */
+.main-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  transition: background-color 1s ease;
+  overflow: hidden;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  z-index: 100;
+}
+
+.contentWrapper {
+  display: flex; /* 与 header 高度一致 */
+  position: relative;
+  width:100%;
+}
+
+.menuWrapper {
+  position: fixed;
+  flex-shrink: 0;
+  height: calc(100vh - 60px);
+  top: 60px;
+  left: 0;
+  bottom: 0;
+  overflow:auto;
+  z-index: 90;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(167, 27, 80, 0.5) transparent;
+}
+
+.content {
+  /* 移除固定高度设置 */
+  /* height: calc(100vh - 60px); */
+  /* max-height: calc(100vh - 60px); */
+  
+  /* 改为flex布局 */
+  flex: 1;
+  min-height: 0; /* 关键：修复flex容器中的滚动问题 */
+  
+  /* 确保滚动在内容区域 */
+  overflow: auto;
+  
+  /* 保留其他样式 */
+  margin-left: 200px;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  padding-top: 0;
+  padding-left: 15px;
+  flex-direction: column;
+  position: relative;
+  box-sizing: border-box;
+  z-index: 10;
+  background: transparent !important;
+  transition: all 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+/* 内容区域流光边框效果 */
+.content::before {
+  content: '';
+  display: none;
+  position: absolute;
+  z-index: 3;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  border-radius: 12px;
+  background: rgba(80, 100, 255, 0.2);
+  box-shadow: 
+    0 0 10px rgba(80, 100, 255, 0.2),
+    inset 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+
+
+
+/* ---------- 主题背景色变换 ---------- */
+
+/* 暗色夜空模式 */
+
+
+@keyframes darkGlowPulse {
+  0% {
+    box-shadow: 
+      0 0 10px rgba(100, 80, 255, 0.3),
+      inset 0 0 10px rgba(50, 40, 120, 0.5);
+  }
+  100% {
+    box-shadow: 
+      0 0 20px rgba(120, 100, 255, 0.5),
+      inset 0 0 15px rgba(60, 50, 150, 0.7);
+  }
+}
+
+
+/* 护眼模式 */
+.body.eye-protection-mode .content {
+  background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+}
+
+.body.eye-protection-mode .content::before {
+  background: linear-gradient(135deg, 
+    rgba(100, 230, 150, 0.1),
+    rgba(80, 200, 120, 0.3));
+  animation: eyeGlowPulse 4s ease-in-out infinite alternate;
+}
+
+@keyframes eyeGlowPulse {
+  0% {
+    box-shadow: 
+      0 0 10px rgba(100, 230, 150, 0.2),
+      inset 0 0 10px rgba(200, 255, 200, 0.5);
+  }
+  100% {
+    box-shadow: 
+      0 0 20px rgba(80, 200, 120, 0.4),
+      inset 0 0 15px rgba(180, 255, 180, 0.7);
+  }
+}
+
+
+/* 菜单项动画 */
+.ant-menu-item {
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+}
+
+
+/* Webkit浏览器滚动条样式 */
+.menuWrapper::-webkit-scrollbar {
+  width: 6px;
+}
+
+.menuWrapper::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.menuWrapper::-webkit-scrollbar-thumb {
+  background-color: rgba(100, 150, 255, 0.5);
+  border-radius: 3px;
+}
+
+.menuWrapper::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(100, 180, 255, 0.8);
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+  .content {
+    margin-left: 0;
+    padding: 20px 15px;
+  }
+  
+  
+  .content-wrapper {
+    flex-direction: column;
+  }
+  
+  .menuInner {
+    width: 100% !important;
+    max-height: none; /* 移除高度限制 */
+  }
+  
+  /* 确保菜单项可以滚动 */
+  .ant-menu {
+    max-height: 100% !important;
+    overflow-y: auto !important;
+  }
+  /* ✅ 桌面端保持固定侧边栏 */
+.menuWrapper {
+  width: 200px;
+  position: fixed;
+  top: 60px;
+  left: 0;
+  bottom: 0;
+  overflow-y: auto;
+  z-index: 90;
+}
+
+  /* 暗色模式调整 */
+  .body.dark-mode .menuWrapper {
+    background: rgba(15, 20, 40, 0.9);
+  }
+  
+  /* 护眼模式调整 */
+  .body.eye-protection-mode .menuWrapper {
+    background: rgba(8, 30, 15, 0.9);
+  }
+}
+
+
+
+  /* 真正可滚动的是这一层 */
+  .menuScrollContainer {
+    scroll-behavior: smooth ;
+    height: 100%; 
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+/* Layout.css 末尾追加 */
+.mobile-menu-btn {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 0 15px;
+}
+
+/* 768px 以下隐藏侧边栏，显示汉堡按钮 */
+@media (max-width: 768px) {
+  .desktop-only { display: none; }
+  .mobile-menu-btn { display: block; }
+
+  .content {
+    margin-left: 0;
+    padding: 15px;
+    margin-left: 0 !important;   /* 去掉左侧预留空间 */
+  }
+}
+
+/* Drawer 内菜单依旧暗色/护眼/流光特效 */
+.mobileDrawer .ant-drawer-content {
+  background: transparent;
+}
+.mobileDrawer .ant-drawer-body {
+  background: rgba(12, 15, 25, 0.95);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  padding: 0;
+  overflow-y: auto;
+}
+.body.dark-mode .mobileDrawer .ant-drawer-body {
+  background: rgba(10, 12, 30, 0.98);
+}
+.body.eye-protection-mode .mobileDrawer .ant-drawer-body {
+  background: rgba(8, 30, 15, 0.98);
+}
+
+/* 保证字体颜色不变黑 */
+.mobileDrawer .ant-menu {
+  color: rgba(200, 220, 255, 0.9) !important;
+}
+
+.layout-menu-toggle {
+  display: none;
+}
+@media (max-width: 768px) {
+  .layout-menu-toggle {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 100vh;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(0, 150, 255, 0.8);
+    color: #fff;
+    font-size: 22px;
+    border: none;
+    z-index: 99;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 10px rgba(0, 150, 255, 0.5);
+  }
+}
+/* iPhone 端 Drawer 内所有文字统一白色 */
+@media (max-width: 768px) {
+  .mobileDrawer .ant-menu,
+  .mobileDrawer .ant-menu-item,
+  .mobileDrawer .ant-menu-submenu-title,
+  .mobileDrawer .ant-menu-item:hover,
+  .mobileDrawer .ant-menu-submenu-title:hover {
+    color: #ffffff !important;
+  }
+}
+/* 手机端：让 Drawer 真正从刘海到 Home 条 100 % 占满 */
+@media (max-width: 768px) {
+  /* 1. 把 antd Drawer 外壳顶到最顶、最底 */
+  .mobileDrawer.ant-drawer .ant-drawer-content-wrapper {
+    width: 100vw !important;
+    height: 100vh !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* 2. 内容区 100 % 高，可滚动 */
+  .mobileDrawer .ant-drawer-body {
+    padding: 0 !important;
+    height: 100vh !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+
+  /* 3. 隐藏系统滚动条，避免右侧空白 */
+  .mobileDrawer .ant-drawer-body::-webkit-scrollbar {
+    display: none;
+  }
+}
+/* 手机端：强制 Drawer 100 % 满屏 + 白色字体 */
+@media (max-width: 768px) {
+  /* 外壳 100 % */
+  .mobileDrawer.ant-drawer .ant-drawer-content-wrapper {
+    width: 100vw !important;
+    height: 100vh !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+  }
+
+  /* 内容区 100 % 高 */
+  .mobileDrawer .ant-drawer-body {
+    padding: 0 !important;
+    height: 100vh !important;
+    overflow-y: auto !important;
+  }
+
+  /* 所有文字白色 */
+  .mobileDrawer .ant-menu,
+  .mobileDrawer .ant-menu-item,
+  .mobileDrawer .ant-menu-submenu-title {
+    color: #fff !important;
+  }
+}
+

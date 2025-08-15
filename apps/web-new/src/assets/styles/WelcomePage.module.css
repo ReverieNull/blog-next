@@ -1,0 +1,7 @@
+/* src/page/WelcomePage.css 或追加到全局样式 */
+.welcome-only {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 70px); /* 70px 为 Header 高度 */
+}

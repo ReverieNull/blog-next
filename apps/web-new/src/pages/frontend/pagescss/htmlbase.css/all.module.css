@@ -1,0 +1,35 @@
+/* src/FEHTML/BASE/HTMLBase.css */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 12px 0;
+}
+.table .th,
+.table .td {
+  border: 1px solid #ccc;
+  padding: 8px 12px;
+}
+.body.dark-mode .table .th,
+.body.dark-mode .table .td {
+  border-color: #555;
+}
+
+.details {
+  margin: 12px 0;
+}
+
+.input,
+.select,
+.button {
+  padding: 8px 12px;
+  margin: 4px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.body.dark-mode .input,
+.body.dark-mode .select,
+.body.dark-mode .button {
+  background: #222;
+  color: #eee;
+  border-color: #555;
+}

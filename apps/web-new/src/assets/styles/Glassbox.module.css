@@ -1,0 +1,762 @@
+/* src/components/GlassBox.css */
+.glassBox {
+  /* 占满可用宽度，左右各留 30 px 空隙 */
+  display: block;
+  height:auto;
+  flex-direction: column;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 2400px;
+  overflow: auto;
+  margin-bottom: 20px;
+
+  width: calc(100% - 60px);
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 20px;
+  padding-top: 0px;
+  padding-right: 32px;
+  padding-left: 32px;
+  padding-right: 20px;
+  border-radius: 16px;
+
+  /* 纯净半透明背景（随主题自动切换） */
+  background: transparent !important;
+  -webkit-backdrop-filter: blur(10px) saturate(180%);
+  backdrop-filter: blur(10px) saturate(180%);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.12);
+
+}
+
+
+
+/* ======= 基础内容排版 ======= */
+.glassBox h1, 
+.glassBox h2, 
+.glassBox h3, 
+.glassBox h4 {
+  color: #35a512;
+  margin: 1.8em 0 0.8em;
+  position: relative;
+  padding-bottom: 10px;
+  padding-top: 0px;
+  font-weight: 600;
+}
+
+.glassBox h1 {
+  font-size: 2.2rem;
+  border-bottom: 2px solid rgba(26, 13, 171, 0.3);
+}
+
+.glassBox h2 {
+  font-size: 1.8rem;
+  border-bottom: 1px solid rgba(26, 13, 171, 0.2);
+}
+
+.glassBox h3 {
+  font-size: 1.5rem;
+}
+
+.glassBox h4 {
+  font-size: 1.3rem;
+}
+
+.glassBox p {
+  line-height: 1.7;
+  margin-bottom: 1.3em;
+  font-size: 1.08rem;
+}
+
+.glassBox ul, 
+.glassBox ol {
+  padding-left: 2em;
+  margin-bottom: 1.8em;
+}
+
+.glassBox li {
+  margin-bottom: 0.8em;
+  line-height: 1.6;
+  position: relative;
+}
+
+.glassBox ul li::before {
+  content: '•';
+  color: #ffab0e;
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+  position: absolute;
+  left: 0;
+}
+
+.glassBox a {
+  color: #ffb515;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border-bottom: transparent !important;
+}
+
+.glassBox a:hover {
+  color: #d32f2f;
+  border-bottom: 1px solid #d32f2f;
+}
+
+/* ======= 表格样式优化 ======= */
+.glassBox table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 25px 0;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  overflow: auto;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  font-size: 0.95rem;
+}
+
+.glassBox th {
+  background: rgba(0, 0, 0, 0.10);
+  color: white;
+  text-align: left;
+  padding: 16px 18px;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+}
+
+.glassBox td {
+  padding: 14px 18px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.glassBox tr:last-child td {
+  border-bottom: none;
+}
+
+.glassBox tr:nth-child(even) {
+  background: rgba(245, 245, 245, 0.05);
+}
+
+.glassBox tr:hover {
+  background: rgba(230, 240, 255, 0.05  );
+}
+
+/* ======= 代码块样式 ======= */
+.glassBox pre {
+  background: rgba(0, 0, 0, 0.05);
+  padding: 18px;
+  border-radius: 8px;
+  font-family: 'Courier New', monospace;
+  margin: 20px 0;
+  overflow-x: auto;
+  line-height: 1.5;
+  font-size: 0.95rem;
+}
+
+.glassBox code {
+  font-family: 'Courier New', monospace;
+  background: rgba(0, 0, 0, 0.05);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.95rem;
+}
+
+/* ======= 引用块样式 ======= */
+.glassBox blockquote {
+  border-left: 4px solid rgba(26, 13, 171, 0.6);
+  padding: 15px 20px;
+  margin: 20px 0;
+  background: rgba(245, 245, 255, 0.4);
+  border-radius: 0 8px 8px 0;
+  font-style: italic;
+}
+
+/* ======= 响应式表格 ======= */
+@media (max-width: 768px) {
+  .glassBox table {
+    display: block;
+    overflow-x: auto;
+    font-size: 0.9rem;
+  }
+  
+  .glassBox th, 
+  .glassBox td {
+    padding: 12px 15px;
+  }
+}
+
+/* ======= 内容区块样式 ======= */
+.glassBox .content-section {
+  margin-bottom: 35px;
+  padding: 25px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+/* ======= 图标容器样式 ======= */
+.glassBox .icon-box {
+  display: flex;
+  justify-content: center;
+  margin: 25px 0;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+.glassBox .icon-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 18px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+  min-width: 110px;
+  transition: all 0.3s ease;
+}
+
+.glassBox .icon-item:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* ======= 主题适配 ======= */
+/* 暗色主题 */
+.body.dark-mode .glassBox {
+  color: #f0f0f0;
+}
+
+.body.dark-mode .glassBox h1, 
+.body.dark-mode .glassBox h2, 
+.body.dark-mode .glassBox h3, 
+.body.dark-mode .glassBox h4 {
+  color: #64b5f6;
+  border-color: rgba(100, 181, 246, 0.3);
+}
+
+.body.dark-mode .glassBox ul li::before {
+  color: #64b5f6;
+}
+
+.body.dark-mode .glassBox a {
+  color: #90caf9;
+  border-bottom: 1px dashed rgba(144, 202, 249, 0.3);
+}
+
+.body.dark-mode .glassBox a:hover {
+  color: #ff8a80;
+  border-bottom: 1px solid #ff8a80;
+}
+
+.body.dark-mode .glassBox table {
+  background: rgba(30, 30, 30, 0.7);
+}
+
+.body.dark-mode .glassBox th {
+  background: rgba(41, 98, 255, 0.85);
+}
+
+.body.dark-mode .glassBox td {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.body.dark-mode .glassBox tr:nth-child(even) {
+  background: rgba(50, 50, 50, 0.4);
+}
+
+.body.dark-mode .glassBox tr:hover {
+  background: rgba(50, 70, 100, 0.6);
+}
+
+.body.dark-mode .glassBox pre,
+.body.dark-mode .glassBox code {
+  background: rgba(0, 0, 0, 0.2);
+  color: #e0e0e0;
+}
+
+.body.dark-mode .glassBox blockquote {
+  border-left: 4px solid rgba(100, 181, 246, 0.6);
+  background: rgba(30, 40, 60, 0.4);
+}
+
+.body.dark-mode .glassBox .content-section {
+  background: rgba(30, 30, 30, 0.25);
+}
+
+.body.dark-mode .glassBox .icon-item {
+  background: rgba(50, 50, 50, 0.3);
+}
+
+.body.dark-mode .glassBox .icon-item:hover {
+  background: rgba(50, 50, 50, 0.4);
+}
+
+/* 护眼主题 */
+.body.eye-protection-mode .glassBox {
+  color: #1a3e1a;
+}
+
+.body.eye-protection-mode .glassBox h1, 
+.body.eye-protection-mode .glassBox h2, 
+.body.eye-protection-mode .glassBox h3, 
+.body.eye-protection-mode .glassBox h4 {
+  color: #2e7d32;
+  border-color: rgba(46, 125, 50, 0.3);
+}
+
+.body.eye-protection-mode .glassBox ul li::before {
+  color: #2e7d32;
+}
+
+.body.eye-protection-mode .glassBox a {
+  color: #2e7d32;
+  border-bottom: 1px dashed rgba(46, 125, 50, 0.3);
+}
+
+.body.eye-protection-mode .glassBox a:hover {
+  color: #c62828;
+  border-bottom: 1px solid #c62828;
+}
+
+.body.eye-protection-mode .glassBox table {
+  background: rgba(240, 255, 240, 0.7);
+}
+
+.body.eye-protection-mode .glassBox th {
+  background: rgba(46, 125, 50, 0.85);
+}
+
+.body.eye-protection-mode .glassBox td {
+  border-bottom: 1px solid rgba(0, 100, 0, 0.1);
+}
+
+.body.eye-protection-mode .glassBox tr:nth-child(even) {
+  background: rgba(220, 255, 220, 0.4);
+}
+
+.body.eye-protection-mode .glassBox tr:hover {
+  background: rgba(200, 255, 200, 0.6);
+}
+
+.body.eye-protection-mode .glassBox pre,
+.body.eye-protection-mode .glassBox code {
+  background: rgba(200, 230, 200, 0.3);
+  color: #1a3e1a;
+}
+
+.body.eye-protection-mode .glassBox blockquote {
+  border-left: 4px solid rgba(76, 175, 80, 0.6);
+  background: rgba(220, 255, 220, 0.3);
+}
+
+.body.eye-protection-mode .glassBox .content-section {
+  background: rgba(240, 255, 240, 0.25);
+}
+
+.body.eye-protection-mode .glassBox .icon-item {
+  background: rgba(220, 255, 220, 0.3);
+}
+
+.body.eye-protection-mode .glassBox .icon-item:hover {
+  background: rgba(220, 255, 220, 0.4);
+}
+
+/* ======= 代码块样式增强 ======= */
+.glassBox pre {
+  background: rgba(25, 25, 35, 0.95);
+  padding: 22px;
+  border-radius: 10px;
+  font-family: 'Fira Code', 'Consolas', 'Monaco', monospace;
+  margin: 25px 0;
+  overflow-x: auto;
+  line-height: 1.6;
+  font-size: 0.95rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(100, 100, 150, 0.2);
+  color: #e0e0e0;
+  position: relative;
+}
+
+.glassBox pre::before {
+  content: '代码';
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: rgba(26, 13, 171, 0.7);
+  color: white;
+  padding: 4px 12px;
+  font-size: 0.8rem;
+  border-radius: 0 0 0 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.glassBox code {
+  font-family: 'Fira Code', 'Consolas', 'Monaco', monospace;
+  background: rgba(25, 25, 35, 0.9);
+  padding: 4px 8px;
+  border-radius: 5px;
+  font-size: 0.95rem;
+  color: #e0e0e0;
+  border: 1px solid rgba(100, 100, 150, 0.2);
+}
+
+/* 语法高亮增强 */
+.glassBox .keyword {
+  color: #ff79c6;
+  font-weight: bold;
+}
+
+.glassBox .function {
+  color: #50fa7b;
+}
+
+.glassBox .string {
+  color: #f1fa8c;
+}
+
+.glassBox .comment {
+  color: #6272a4;
+  font-style: italic;
+}
+
+.glassBox .number {
+  color: #bd93f9;
+}
+
+.glassBox .operator {
+  color: #ff79c6;
+}
+
+.glassBox .tag {
+  color: #ff5555;
+}
+
+.glassBox .attr {
+  color: #50fa7b;
+}
+
+/* 代码行号 */
+.glassBox .line-numbers {
+  display: inline-block;
+  width: 2.5em;
+  padding-right: 1em;
+  margin-right: 1em;
+  text-align: right;
+  border-right: 1px solid rgba(100, 100, 150, 0.4);
+  color: #6272a4;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* 代码复制按钮 */
+.glassBox .copy-code {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: #bd93f9;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: all 0.3s ease;
+  -webkit-backdrop-filter:blur(5px);
+  backdrop-filter: blur(5px);
+}
+
+.glassBox .copy-code:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: #ff79c6;
+}
+
+.glassBox .copy-code:active {
+  transform: scale(0.95);
+}
+
+/* ======= 主题适配 ======= */
+/* 默认主题代码块增强 */
+.glassBox pre {
+  background: rgba(25, 25, 35, 0.95);
+  color: #e0e0e0;
+}
+
+/* 暗色主题代码块增强 */
+.body.dark-mode .glassBox pre,
+.body.dark-mode .glassBox code {
+  background: rgba(15, 15, 25, 0.95);
+  border: 1px solid rgba(80, 100, 200, 0.3);
+}
+
+.body.dark-mode .glassBox .keyword {
+  color: #ff79c6;
+}
+
+.body.dark-mode .glassBox .function {
+  color: #50fa7b;
+}
+
+.body.dark-mode .glassBox .string {
+  color: #f1fa8c;
+}
+
+.body.dark-mode .glassBox .comment {
+  color: #6272a4;
+}
+
+.body.dark-mode .glassBox .number {
+  color: #bd93f9;
+}
+
+.body.dark-mode .glassBox pre::before {
+  background: rgba(41, 98, 255, 0.7);
+}
+
+/* 护眼主题代码块增强 */
+.body.eye-protection-mode .glassBox pre,
+.body.eye-protection-mode .glassBox code {
+  background: rgba(20, 40, 20, 0.95);
+  color: #e0f0e0;
+  border: 1px solid rgba(60, 120, 60, 0.3);
+}
+
+.body.eye-protection-mode .glassBox .keyword {
+  color: #2e7d32;
+  font-weight: bold;
+}
+
+.body.eye-protection-mode .glassBox .function {
+  color: #4caf50;
+}
+
+.body.eye-protection-mode .glassBox .string {
+  color: #8bc34a;
+}
+
+.body.eye-protection-mode .glassBox .comment {
+  color: #78909c;
+}
+
+.body.eye-protection-mode .glassBox .number {
+  color: #7e57c2;
+}
+
+.body.eye-protection-mode .glassBox .operator {
+  color: #ff9800;
+}
+
+.body.eye-protection-mode .glassBox pre::before {
+  background: rgba(46, 125, 50, 0.7);
+}
+
+.body.eye-protection-mode .glassBox .line-numbers {
+  color: #78909c;
+  border-right: 1px solid rgba(60, 120, 60, 0.4);
+}
+
+/* 在现有 .glassBox 样式之后添加 */
+
+/* ======= 主题适配 - 明亮主题 ======= */
+body[data-theme='light'] .glassBox {
+  /* 背景效果 */
+  background: rgba(255, 255, 255, 0.7) !important;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.1);
+  
+  /* 文字颜色 */
+  color: #333;
+}
+
+body[data-theme='light'] .glassBox h1, 
+body[data-theme='light'] .glassBox h2, 
+body[data-theme='light'] .glassBox h3, 
+body[data-theme='light'] .glassBox h4 {
+  color: #1a5fb4; /* 深蓝色标题 */
+  border-color: rgba(26, 95, 180, 0.3);
+}
+
+body[data-theme='light'] .glassBox a {
+  color: #1a5fb4; /* 深蓝色链接 */
+}
+
+body[data-theme='light'] .glassBox a:hover {
+  color: #e06c75; /* 柔和的红色悬停 */
+}
+
+body[data-theme='light'] .glassBox table {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+body[data-theme='light'] .glassBox th {
+  background: rgba(26, 95, 180, 0.85);
+  color: white;
+}
+
+/* ======= 主题适配 - 暗色主题 ======= */
+body[data-theme='dark'] .glassBox {
+  /* 背景效果 */
+  background: rgba(30, 30, 46, 0.7) !important;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.3);
+  
+  /* 文字颜色 */
+  color: #cdd6f4;
+}
+
+body[data-theme='dark'] .glassBox h1, 
+body[data-theme='dark'] .glassBox h2, 
+body[data-theme='dark'] .glassBox h3, 
+body[data-theme='dark'] .glassBox h4 {
+  color: #89b4fa; /* 浅蓝色标题 */
+  border-color: rgba(137, 180, 250, 0.3);
+}
+
+body[data-theme='dark'] .glassBox a {
+  color: #89b4fa; /* 浅蓝色链接 */
+}
+
+body[data-theme='dark'] .glassBox a:hover {
+  color: #f38ba8; /* 柔和的粉色悬停 */
+}
+
+body[data-theme='dark'] .glassBox table {
+  background: rgba(30, 30, 46, 0.8);
+}
+
+body[data-theme='dark'] .glassBox th {
+  background: rgba(137, 180, 250, 0.85);
+}
+
+/* ======= 主题适配 - 护眼主题 ======= */
+body[data-theme='eye'] .glassBox {
+  /* 背景效果 */
+  background: rgba(232, 245, 233, 0.7) !important; /* 柔和的绿色背景 */
+  box-shadow: 0 8px 40px rgba(0, 100, 0, 0.1);
+  
+  /* 文字颜色 */
+  color: #2e7d32;
+}
+
+body[data-theme='eye'] .glassBox h1, 
+body[data-theme='eye'] .glassBox h2, 
+body[data-theme='eye'] .glassBox h3, 
+body[data-theme='eye'] .glassBox h4 {
+  color: #2e7d32; /* 深绿色标题 */
+  border-color: rgba(46, 125, 50, 0.3);
+}
+
+body[data-theme='eye'] .glassBox a {
+  color: #2e7d32; /* 深绿色链接 */
+}
+
+body[data-theme='eye'] .glassBox a:hover {
+  color: #c62828; /* 深红色悬停 */
+}
+
+body[data-theme='eye'] .glassBox table {
+  background: rgba(232, 245, 233, 0.8);
+}
+
+body[data-theme='eye'] .glassBox th {
+  background: rgba(46, 125, 50, 0.85);
+  color: white;
+}
+
+/* ======= 通用主题增强 ======= */
+/* 代码块主题适配 */
+body[data-theme='light'] .glassBox pre {
+  background: rgba(25, 25, 35, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+body[data-theme='dark'] .glassBox pre {
+  background: rgba(15, 15, 25, 0.7);
+  border: 1px solid rgba(80, 100, 200, 0.3);
+}
+
+body[data-theme='eye'] .glassBox pre {
+  background: rgba(20, 40, 20, 0.7);
+  border: 1px solid rgba(60, 120, 60, 0.3);
+}
+
+/* 引用块主题适配 */
+body[data-theme='light'] .glassBox blockquote {
+  background: rgba(245, 245, 255, 0.4);
+  border-left-color: #1a5fb4;
+}
+
+body[data-theme='dark'] .glassBox blockquote {
+  background: rgba(30, 40, 60, 0.4);
+  border-left-color: #89b4fa;
+}
+
+body[data-theme='eye'] .glassBox blockquote {
+  background: rgba(220, 255, 220, 0.3);
+  border-left-color: #2e7d32;
+}
+
+/* 列表标记颜色 */
+body[data-theme='light'] .glassBox ul li::before {
+  color: #1a5fb4;
+}
+
+body[data-theme='dark'] .glassBox ul li::before {
+  color: #89b4fa;
+}
+
+body[data-theme='eye'] .glassBox ul li::before {
+  color: #2e7d32;
+}
+
+/* 图标容器悬停效果 */
+body[data-theme='light'] .glassBox .icon-item:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+body[data-theme='dark'] .glassBox .icon-item:hover {
+  background: rgba(50, 50, 70, 0.5);
+}
+
+body[data-theme='eye'] .glassBox .icon-item:hover {
+  background: rgba(200, 230, 200, 0.5);
+}
+
+
+.glassBox {
+  transition: 
+    background-color 0.5s ease,
+    color 0.5s ease,
+    box-shadow 0.5s ease;
+}
+
+.glassBox h1,
+.glassBox h2,
+.glassBox h3,
+.glassBox h4,
+.glassBox a {
+  transition: color 0.5s ease;
+}
+
+.glassBox table,
+.glassBox pre,
+.glassBox blockquote {
+  transition: 
+    background-color 0.5s ease,
+    border-color 0.5s ease;
+}
+
+@font-face {
+    font-family: 'MyCustomFont';
+    src: 
+        url('/fonts/wendao.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+.glassBox h1{
+    font-family: 'MyCustomFont',  Arial, sans-serif;
+}
+
+body[data-theme='dark'] .glassBox h1{
+  font-family: 'MyCustomFont',  Arial, sans-serif;
+}
