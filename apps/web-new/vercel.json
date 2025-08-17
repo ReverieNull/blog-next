@@ -1,0 +1,17 @@
+{
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/next",
+      "config": {
+        "maxLambdaMemory": 3008  
+      }
+    }
+  ],
+  "build": {
+    "env": {
+      "PNPM_VERSION": "10.x",   
+      "NODE_OPTIONS": "--max_old_space_size=3072"  
+    }
+  }
+}
