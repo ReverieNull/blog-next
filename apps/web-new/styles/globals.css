@@ -1,8 +1,8 @@
 /* globals.css */
 :root {
-  --theme-bg-light: url('/themes/light.jpg');
-  --theme-bg-dark: url('/themes/dark.png');
-  --theme-bg-eye: url('/themes/neon.jpg');
+  --theme-bg-light: url('/themes/light.avif');
+  --theme-bg-dark: url('/themes/dark.avif');
+  --theme-bg-eye: url('/themes/neon.avif');
 }
 
 html, body, #__next {
