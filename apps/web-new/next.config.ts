@@ -1,10 +1,22 @@
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
-  /* config options here */
-  output: "export",
-  trailingSlash: true,
-  reactStrictMode: true,
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  trailingSlash: false,
+  
+  // 仅添加重定向规则（不再添加回退规则）
+  async redirects() {
+    return [
+      {
+        source: "/:path+/",
+        destination: "/:path+",
+        permanent: true,
+      },
+      {
+        source: "//:path+",
+        destination: "/:path+",
+        permanent: true,
+      }
+    ];
+  }
 };
 
-export default nextConfig;
+module.exports = nextConfig;
