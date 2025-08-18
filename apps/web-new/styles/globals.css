@@ -2,7 +2,7 @@
 :root {
   --theme-bg-light: url('/themes/light.avif');
   --theme-bg-dark: url('/themes/dark.avif');
-  --theme-bg-eye: url('/themes/neon.avif');
+  --theme-bg-eye: url('/themes/eye.avif');
 }
 
 html, body, #__next {
