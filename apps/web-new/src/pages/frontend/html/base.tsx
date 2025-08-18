@@ -9,6 +9,20 @@ import Prism from 'prismjs';
 import 'prismjs/themes/prism-tomorrow.css';
 import 'prismjs/components/prism-markup';
 
+const HtmlBase1 = `<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <title>HTML 骨架示例</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h4>“Hello, HTML!”</h4>
+</body>
+</html>
+`;
+
 const rows = [
   ['<!doctype html>', '告诉浏览器用 HTML5 标准渲染', '<!doctype html>', '前面不能有任何字符，否则触发怪异模式'],
   ['<html lang>', '声明页面语言，影响读屏、SEO', '<html lang="zh-CN">', '不写 lang → 读屏软件读成英文发音'],
@@ -71,6 +85,45 @@ export default function HTMLBase() {
           ))}
         </tbody>
       </table>
+      <h2>
+      基础讲解
+      </h2>
+      <h3>
+      浏览器页面的“骨架”
+      </h3>
+      <pre>
+        <code className={styles.languageMarkup}>{HtmlBase1}</code>
+      </pre>
+
+
+  <h4>“Hello, HTML!”</h4>
+
+      <section>
+        <p>    浏览器的渲染机制，是先加载 HTML，再加载 CSS，最后加载 JavaScript。</p>
+        <p>
+          HTML 是网页的骨架，CSS 是网页的样式，JavaScript 是网页的交互。
+        </p>
+        <p>
+          因此，网页的骨架应该放在 HTML 中，样式应该放在 CSS 中，交互应该放在 JavaScript 中。
+        </p>
+        <p>
+          这样，网页的骨架和样式会先加载，交互会后加载
+        </p>
+            <p>那么上面的部分就是浏览器的骨架部分，除此之外，我们还有许多的标签可以使用。</p>
+        </section>
+        <h3>
+      语义化标签
+      </h3>
+       <section>
+        语义化标签，就是为网页内容添加语义，让网页更易读、更易理解。
+        无论是人、机器，都可以轻松地识别网页内容。同时，语义化标签也使得网页被搜索引擎收录的概率更高。
+        <p>
+          那么常见的语义化标签有哪些呢？
+        </p>
+        
+
+        
+       </section>
     </GlassBox>
   );
 }

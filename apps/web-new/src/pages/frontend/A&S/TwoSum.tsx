@@ -8,7 +8,7 @@ import Prism from 'prismjs';
 import 'prismjs/themes/prism-tomorrow.css';
 import 'prismjs/components/prism-markup';
 
-const htmlSkeleton = `
+const twoSum = `
 function twoSum(nums,target){
   const map = new Map(); //创建Map对象
   for(let i =0 ; i<nums.length; i++){ //遍历数组
@@ -36,7 +36,7 @@ export default function TwoSum() {
       <p>给定一个整数数组 nums 和一个整数目标值 target，请你在该数组中找出 和为目标值 target 的那 两个 整数，并返回它们的数组下标。</p>
       <section>使用哈希表存储值，遍历查找所需值</section>
       <pre>
-        <code className={styles.languageMarkup}>{htmlSkeleton}</code>
+        <code className={styles.languageMarkup}>{twoSum}</code>
       </pre>
     </GlassBox>
   );
